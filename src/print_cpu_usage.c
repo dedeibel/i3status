@@ -148,7 +148,7 @@ void print_cpu_usage(yajl_gen json_gen, char *buffer, const char *format, const 
         }
 
         if (BEGINS_WITH(walk + 1, "usage")) {
-            outwalk += sprintf(outwalk, "%02d%s", diff_usage, pct_mark);
+            outwalk += sprintf(outwalk, "%2d%s", diff_usage, pct_mark);
             walk += strlen("usage");
         }
 #if defined(LINUX)
@@ -161,7 +161,7 @@ void print_cpu_usage(yajl_gen json_gen, char *buffer, const char *format, const 
                 int cpu_diff_idle = curr_cpus[number].idle - prev_cpus[number].idle;
                 int cpu_diff_total = curr_cpus[number].total - prev_cpus[number].total;
                 int cpu_diff_usage = (cpu_diff_total ? (1000 * (cpu_diff_total - cpu_diff_idle) / cpu_diff_total + 5) / 10 : 0);
-                outwalk += sprintf(outwalk, "%02d%s", cpu_diff_usage, pct_mark);
+                outwalk += sprintf(outwalk, "%2d%s", cpu_diff_usage, pct_mark);
             }
             int padding = 1;
             int step = 10;

@@ -39,7 +39,7 @@ static int format_bytes(char *outwalk, uint64_t bytes, uint64_t base, const char
         size /= base;
         exponent += 1;
     }
-    return sprintf(outwalk, "%.1f %sB", size, symbols[exponent]);
+    return sprintf(outwalk, "%.f %sB", size, symbols[exponent]);
 }
 
 /*
