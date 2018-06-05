@@ -1,0 +1,214 @@
+i3status (2.11-1) unstable; urgency=medium
+
+  * New upstream version 2.11
+  * drop kfreebsd-ftbfs.patch (merged upstream)
+  * drop reproducible-build.patch (merged upstream)
+  * use secure URLs
+  * postinst: use command -v to check for setcap presence
+  * copyright: only include license once
+  * enable all hardening
+  * bump standards-version (no changes necessary)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Sat, 21 Jan 2017 15:42:57 +0100
+
+i3status (2.10-3) unstable; urgency=medium
+
+  * Add debian/patches/reproducible-build.patch (by Reiner Herrmann)
+    (Closes: #842867)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Wed, 02 Nov 2016 09:40:40 +0100
+
+i3status (2.10-2) unstable; urgency=medium
+
+  * Fix FTBFS on kfreebsd/hurd (Patch by Axel Beckert) (Closes: #826833)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Mon, 22 Aug 2016 08:53:08 +0200
+
+i3status (2.10-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Fri, 01 Jan 2016 20:01:32 +0100
+
+i3status (2.9-2) unstable; urgency=medium
+
+  * experimental to unstable because i3status 2.9-1 was only in experimental
+    due to the freeze.
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Mon, 18 May 2015 18:37:13 +0200
+
+i3status (2.9-1) experimental; urgency=low
+
+  * New upstream release
+  * switch to machine-readable debian/copyright
+  * bump standards-version to 3.9.6 (no changes necessary)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Sun, 22 Mar 2015 18:59:38 +0100
+
+i3status (2.8-1) unstable; urgency=low
+
+  * New upstream release
+  * drop verbose_build.patch (applied upstream)
+  * use dh(1) and debhelper 9
+  * bump standards-version to 3.9.5 (no changes necessary)
+  * debian/watch: add pgpsigurlmangle=, update URL
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Sun, 05 Jan 2014 12:46:32 +0100
+
+i3status (2.7-2) unstable; urgency=low
+
+  * experimental to unstable because i3status 2.7 was only in experimental due
+    to the freeze.
+  * canonicalize vcs fields
+  * bump standards-version to 3.9.4 (no changes necessary)
+  * Patch Makefile to enable verbose build
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Tue, 18 Jun 2013 08:06:37 +0200
+
+i3status (2.7-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Wed, 27 Feb 2013 11:14:56 +0100
+
+i3status (2.6-1) experimental; urgency=low
+
+  * New upstream release
+  * Enable hardening
+  * Remove unnecessary DMUA flag
+  * Add Vcs-Git/Vcs-Browser, move packaging to alioth
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Wed, 03 Oct 2012 13:51:47 +0200
+
+i3status (2.5.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Fri, 11 May 2012 22:21:50 +0200
+
+i3status (2.5-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump standards version (no changes necessary)
+  * Email change: Michael Stapelberg -> stapelberg@debian.org
+  * Convert packaging to 3.0 (quilt)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Wed, 02 May 2012 17:31:48 +0200
+
+i3status (2.4-1) unstable; urgency=low
+
+  * Support wifi, cpu usage, volume, disk usage on FreeBSD
+  * Don’t exit, but display an error when CPU temperature/usage/load is not
+    available
+  * manpage: load format is %1min %5min %15min
+  * Don’t use a default order, so that config files can use += everywhere
+  * Interpret configfiles case-insensitive
+  * battery: implement path option for batteries with non-standard paths
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Tue, 27 Dec 2011 00:20:49 +0100
+
+i3status (2.3-2) unstable; urgency=low
+
+  [ Axel Beckert ]
+  * Fix missing build-dependency on kfreebsd (Closes: #635104).
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Sat, 23 Jul 2011 18:28:59 +0200
+
+i3status (2.3-1) unstable; urgency=low
+
+  [ Michael Stapelberg ]
+  * config search order is now ~/.i3status.conf, ~/.config/i3status/config,
+    /etc/i3status/config, then /etc/xdg/i3status/config
+  * battery: use POWER_NOW if CURRENT_NOW is not available (linux >= 2.6.36)
+  * use kill(0, pid) instead of /proc to check if a process is alive
+  * cache DNS query results also if there is no IPv6 connectivity
+  * implement the 'path' option for cpu_temperature
+  * add cpu_usage module
+  * automatically detect the output format unless configured specifically
+  * Bugfix: get time at the beginning of the loop
+  * Bugfix: respect locale settings (for %c in date format)
+  * debian: use [linux-any] in dependencies (Closes: #634491)
+
+  [ Axel Beckert ]
+  * Fix FTBFS on kfreebsd.
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Thu, 21 Jul 2011 21:22:54 +0200
+
+i3status (2.2-1) unstable; urgency=low
+
+  * Implement a discordian date module (like ddate(1))
+  * Implement ALSA volume support
+  * disk: implement %avail (different from %free with regard to the reserved
+    space of your filesystem)
+  * wireless: display quality relative to the wireless maximum quality.
+  * wireless: display connection speed (bitrate)
+  * wireless: custom colors for link quality
+  * Bugfix: Treat an interface as 'down' when it cannot be found in
+    /proc/net/wireless
+  * Bugfix: Correctly check for interface up/down status
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Wed, 22 Sep 2010 20:07:48 +0200
+
+i3status (2.1-1) unstable; urgency=low
+
+  * battery: implement %emptytime, the time of day when your battery is empty
+  * ipv6: cache DNS query lookups (for finding the K root server)
+  * disk: also round when printing TB
+  * wireless: display no IP instead of (null)
+  * instead of a relative sleep(1), sleep until the full second
+  * colorize ethernet output
+  * use cap_net_admin instead of running i3status as root for getting
+    ethernet link speed
+  * ipv6: don't require a title for config option
+  * ipv6: provide format strings for ipv6 up and ipv6 down
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Sat, 10 Apr 2010 23:48:52 +0200
+
+i3status (2.0-1) unstable; urgency=low
+
+  * add support for disk info (free/used/ins)
+  * add support for displaying the ESSID of the wireless interface
+  * add support for getting the public IPv6 address of the system
+  * all "modules" now support format strings
+  * switch to libconfuse for parsing the config file
+  * merge support for FreeBSD for many "modules"
+  * drop support for wmii, add support for xmobar
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Tue, 27 Oct 2009 20:07:58 +0100
+
+i3status (1.2-3) unstable; urgency=low
+
+  * debian: Correct dependencies in /etc/init.d/i3status-wmii (Closes: #541626)
+  * debian: init script should not require root priviledges even to get the
+    usage information (Closes: #541627)
+  * debian: better error message when i3status-wmii is not enabled using
+    /etc/defaults/i3status-wmii (Closes: #541628)
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Mon, 17 Aug 2009 14:57:49 +0200
+
+i3status (1.2-2) unstable; urgency=low
+
+  * debian: use make distclean instead of make clean between both builds
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Mon, 22 Jun 2009 19:04:22 +0200
+
+i3status (1.2-1) unstable; urgency=low
+
+  * Handle SIGPIPE to avoid zombie processes
+  * debian: only build one package containing both binaries
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Sun, 21 Jun 2009 13:58:03 +0200
+
+i3status (1.1-1) unstable; urgency=low
+
+  * Implement getting temperature from thermal zones (Thanks atsutane)
+  * debian: Build a separate package with i3status in wmii mode
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Wed, 17 Jun 2009 21:35:37 +0200
+
+i3status (1.0-1) unstable; urgency=low
+
+  * Initial release
+  * Closes: #526520
+
+ -- Michael Stapelberg <michael@stapelberg.de>  Fri, 01 May 2009 19:52:45 +0200
